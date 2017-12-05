@@ -1,3 +1,7 @@
+/*This code simulates for infinite population, finite queue 
+ that is, infinite requests, finite server capacity model
+ If more than 'W' requests comes, they will be rejected*/
+
 #include <iostream>
 #include <cstdio>
 #include <cmath>
