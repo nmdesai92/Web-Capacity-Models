@@ -1,6 +1,11 @@
-/*This code simulates for infinite population, finite queue 
- that is, infinite requests, finite server capacity model
- If more than 'W' requests comes, they will be rejected*/
+/*This code calculates parameters for infinite population, finite queue model
+ that is, infinite requests, finite server capacity model. If more than 'W' requests 
+ comes, they will be rejected.
+ Equations are given in Slides/Web_Capacity_models.ppt slide no. 7,8.
+ 
+ All formulas taken from Chapter 8 of book Capacity Planning for Web Services: metrics, models, and methods
+ Book URL  https://cs.gmu.edu/~menasce/webservices/
+ */
 
 #include <iostream>
 #include <cstdio>
@@ -20,11 +25,11 @@ class finite_q{
 			throughput = t;
 			this->W = W;
 		}
-		float calculate_p_k(int k);
+		float calculate_p_k(int k);	//Fraction of time when the server has k requests.
 		float server_Utilization();
 		int Avg_server_throughput();
-		float avg_no_of_req();
-		float avg_response_time();		
+		float avg_no_of_req();		//Average number of requests in the server
+		float avg_response_time();	// Average response time to process each request	
 };
 
 float finite_q :: calculate_p_k(int k)
