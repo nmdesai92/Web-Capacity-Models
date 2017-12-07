@@ -1,7 +1,12 @@
 /*This code simulates for infinite population, infinite queue 
  that is, infinite requests, infinite server capacity model
  Every requests that comes to server will be queued.
- No requests will be rejected.*/
+ No requests will be rejected.
+ Equations are given in Slides/Web_Capacity_models.ppt slide no. 5.
+ 
+ All formulas taken from Chapter 8 of book Capacity Planning for Web Services: metrics, models, and methods
+ Book URL  https://cs.gmu.edu/~menasce/webservices/
+ */
 
 #include <iostream>
 #include <cstdio>
@@ -19,11 +24,11 @@ class inf_q{
 			this->throughput = throughput;
 		}
 
-		float calculate_p_k(int k);
+		float calculate_p_k(int k);	//Fraction of time when server has k requests
 		float server_Utilization();
 		int Avg_server_throughput();
-		float avg_no_of_req();
-		float avg_response_time();
+		float avg_no_of_req();		//Average number of requests in the server
+		float avg_response_time();	//average response time for each request
 };
 
 float inf_q :: calculate_p_k(int k)
